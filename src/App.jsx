@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import AboutMe from './division/aboutMe'
 import ProjectsDone from './division/projectsDone'
+import TechUsed from './division/techUsed'
 
 function Header() {
   return (
@@ -18,9 +19,9 @@ function App() {
   return (
     <div style={{ backgroundColor: "#ffc6c6", height: "800px" }}>
     <Header />
-    {/* <AboutMe /> */}
-    <ProjectsDone />
-
+    {/* <AboutMe /> 
+    <ProjectsDone /> */}
+    <TechUsed />
     </div>
   )
 }
