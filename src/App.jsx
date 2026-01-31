@@ -20,10 +20,10 @@ function App() {
   return (
     <div style={{ backgroundColor: "#ffc6c6", height: "800px" }}>
     <Header />
-    {/* <AboutMe /> 
-    <ProjectsDone />
-    <TechUsed /> */}
-    <ContactMe />
+    <AboutMe /> 
+    {/* <ProjectsDone />
+    <TechUsed /> 
+    <ContactMe />*/}
     </div>
   )
 }
