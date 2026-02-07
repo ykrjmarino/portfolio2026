@@ -4,6 +4,9 @@ import { GoogleGenAI } from '@google/genai';
 import { z } from "zod";
 import { zodToJsonSchema } from "zod-to-json-schema";
 
+import cookieParser from "cookie-parser";
+import crypto from "crypto";
+
 import cors from "cors";
 import dotenv from 'dotenv';
 dotenv.config(); // must come first before using process.env
@@ -12,42 +15,46 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
-
+app.use(cookieParser());
 app.use(cors({
   origin: "http://localhost:5173"
 }));
 
 app.get("/", (req, res) => res.send("Backend is running UwU!"));
 
-//for Gemini chatbot
-/*
-const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY
-})
+const sessions = {}; 
 
-app.post("/chat", async (req, res) => {
-  try {
-    const { message } = req.body;
+app.use((req, res, next) => {
+  let sessionId = req.cookies.sessionId;
 
-    const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
-      contents: message
+  if (!sessionId) {
+    sessionId = crypto.randomUUID();
+
+    res.cookie("sessionId", sessionId, {
+      httpOnly: true,
+      secure: false, // true if HTTPS
+      sameSite: "lax",
+      maxAge: 1000 * 60 * 60 * 24 // 1 day
     });
-console.log(req.body);
-    res.json({ reply: response.text });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Failed to get response from Gemini" });
   }
+
+  if (!sessions[sessionId]) {
+    sessions[sessionId] = [];
+  }
+
+  req.sessionId = sessionId;
+  req.chatHistory = sessions[sessionId];
+
+  next();
 });
-*/
+
 
 //for Gemini chatbot (Structured outputs)
 const CV_CONTEXT = `
   MY INFO:
   Name: Yla Marino
   Role: Aspiring Web Developer / IT Student
-  Location: Pampanga, Philippines
+  Location: Mexico, Pampanga, Philippines
 
   SKILLS:
   - React.js
@@ -57,10 +64,13 @@ const CV_CONTEXT = `
   - JWT Authentication
   - Git/GitHub
 
-  PROJECTS:
+  STACK: PERN
+
+  PROJECTS: 
   1. Online Examination System (Capstone)
-    - Features: teacher dashboard, student exam code entry, monitoring module (Face API + TensorFlow FaceMesh)
-    - Backend: Express + PostgreSQL
+    - Features: admin dashboard, teacher dashboard, student exam code entry, monitoring module (Face API, mouse (if it leaves the website), tab switch, resize screen)
+    - Frontend: React.js
+    - Backend: Node/Express + PostgreSQL
     - Auth: JWT access + refresh token
   2. Portfolio Website
     - React-based portfolio site
@@ -69,6 +79,10 @@ const CV_CONTEXT = `
   EDUCATION:
   - BS Information Technology (4th Year)
 
+  DREAM and HOBBIES (if asked only)
+  - I’ve always dreamed of flying — like skydiving or just being up in the sky and taking in the view.
+  - I also like gaming (minecraft, last war, mir4, pubg) to relax and catch up with friends, and I usually sketch ideas on paper when I’m planning something.
+
   RULE:
   Answer ONLY using the information above.
   If the user asks something not included, reply:
@@ -76,11 +90,18 @@ const CV_CONTEXT = `
 `;
 
 const INSTRUCTIONS = `
-  - Answer in **first person**, as if Yla herself is responding to the employer.
-  - Be natural, professional, and friendly — like you are introducing yourself personally.
-  - Include relevant skills, projects, and education naturally if appropriate.
-  - If the user asks about something not in your portfolio, reply: "I don't have that information in my portfolio."
-  - Only return the text of the answer — do NOT include JSON arrays or extra fields.
+  -Answer in first person, as if Yla herself is responding to the employer.
+  -Be natural, professional, and friendly — like you are introducing yourself personally.
+
+  -If asked a specific question, give a direct answer.
+  -If the user’s question is broad or general (like “Tell me about your projects”), answer the main points and then ask if they want to know more.
+  -When asked about projects, talk only about the Capstone project, unless they specifically ask for more.
+  -If the user asks a follow-up question, refer to the previous conversation, be concise, and avoid repeating information unnecessarily.
+
+  -Include relevant skills, projects, and education naturally when appropriate.
+  -For yes/no or closed-ended questions, do not ask if they want more information.
+  -If the user asks about something not in your portfolio, reply: "I don't have that information in my portfolio."
+  -Only return the text of the answer — do not include JSON arrays or any extra fields.
 `;
 
 const USER_PERSONALITY = `
@@ -106,6 +127,11 @@ app.post("/chat", async (req, res) => {
   try {
     const { message } = req.body;
 
+    req.chatHistory.push({
+      role: "user",
+      parts: [{ text: message }]
+    });
+
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
       contents: [
@@ -130,23 +156,19 @@ app.post("/chat", async (req, res) => {
               `
             }
           ]
-        }
-      ],
-      config: {
-        responseMimeType: "application/json",
-        responseJsonSchema: zodToJsonSchema(portfolioSchema)
-      }
+        },
+        ...req.chatHistory
+      ]
     });
 
-    // Parse and validate structured JSON
-    const parsed = portfolioSchema.parse(JSON.parse(response.text));
+    const botReply = response.text;
 
-    // Make sure education is always an array
-    parsed.education = Array.isArray(parsed.education)
-      ? parsed.education
-      : [parsed.education];
+    req.chatHistory.push({
+      role: "model",
+      parts: [{ text: botReply }]
+    });
 
-    res.json(parsed);
+    res.json({ reply: botReply });
 
   } catch (err) {
     console.error(err);
