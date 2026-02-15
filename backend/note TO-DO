@@ -2,3 +2,19 @@ FIND ANOTHER API,,
 
 FREE TIER
 UNLIMITED REQUESTS or HIGHER LIMITS
+
+use mock res for development:
+
+in env
+USE_MOCK=true
+USE_MOCK=false
+
+if (process.env.USE_MOCK === "true") {
+  return res.json({
+    answer: "This is a mock AI response for testing.",
+    skills: ["React", "Node.js"],
+    projects: ["Online Examination System"],
+    education: ["BSIT - 4th Year"],
+    links: []
+  });
+}
