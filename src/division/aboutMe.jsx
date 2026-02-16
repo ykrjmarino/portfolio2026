@@ -1,11 +1,10 @@
 function AboutMe() {
   return (
-    <>
-    <div className='div2' style={{ backgroundColor: "#9ac1ff" }}>
+    <section className='about' style={{ backgroundColor: "#9ac1ff" }}>
 
 
-      <div className='d2-container1' style={{ backgroundColor: "#ffa69a", padding: "15px" }}>
-        <div className='d2-container1-1' style={{ backgroundColor: "#ff7c6b" }}>
+      <div className='about-content' style={{ backgroundColor: "#ffa69a", padding: "15px" }}>
+        <div className='about-text' style={{ backgroundColor: "#ff7c6b" }}>
           <p>
             Hello World! I am
             <b> YLA KORAZON R. MARINO </b>
@@ -16,19 +15,22 @@ function AboutMe() {
             and challenge myself to keep learning.”
           </p>
         </div>
-        <div className='d2-container1-2' style={{ backgroundColor: "#e7604e" }}>
+        <div className='about-actions' style={{ backgroundColor: "#e7604e" }}>
           buttons here
         </div>
       </div>
 
 
-      <div className='d2-container2' style={{ backgroundColor: "#aeff9a" }}>{/* IMG container  */}
-        <img className='d2-container2-img' src="/images/logo-white.png" alt="profile-pic" style={{ width: "500px" }} />
+      <div className='about-image' style={{ backgroundColor: "#aeff9a" }}>{/* IMG container  */}
+        <img className="about-img" 
+          src="/images/logo-white.png" 
+          alt="Profile" 
+          style={{ width: "500px" }}
+        />
       </div>
 
 
-    </div>
-    </>
+    </section>
   )
 }
 

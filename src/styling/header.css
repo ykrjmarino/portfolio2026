@@ -6,7 +6,7 @@ p {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.div1 {
+.header {
   background-color: #374836;
 
   height: 60px;
@@ -16,7 +16,7 @@ p {
   padding: 0 10px;
 }
 
-  .d1-container1 {
+  .header-inner {
     /* background-color: #10408d; */
     
     position: absolute;    
@@ -27,7 +27,7 @@ p {
     align-items: center;
     gap: 8px;
   }
-    .d1-img {
+    .header-logo {
       /* background-color: #8d5710; */
       
       width: 50px;
@@ -35,7 +35,7 @@ p {
       flex-shrink: 0;
     }
 
-    .d1-name {
+    .header-title {
       /* background-color: #108d72; */
 
       font-size: 35px;
@@ -43,3 +43,23 @@ p {
       margin: 0;
       font-weight: 900;
     }
+
+
+.projects {
+  background-color: rgb(214, 140, 43);
+}
+.project-image {
+  width: 500px
+}
+
+.tech-item {
+  width: 100px;
+  padding: 10px;
+  margin: 10px;
+  background-color: #61352f;
+}
+
+.contact-profile {
+  width: 200px;
+  background-color: #61352f;
+}

@@ -6,23 +6,33 @@ import ContactMe from './division/contactMe'
 
 function Header() {
   return (
-    <div className='div1'>
-      <div className='d1-container1'>
-        <img className='d1-img' src="/images/logo-white.png" alt="logo" />
-        <p className='d1-name'> YKMarino </p>
+    <header className='header'>
+      <div className="header-inner">
+        <img 
+          className="header-logo" 
+          src="/images/logo-white.png" 
+          alt="YKMarino logo" 
+        />
+        <p className="header-title">YKMarino</p>
       </div>
-    </div>
+    </header >
   )
 }
+
 function App() {
 
   return (
-    <div className='div-whole' style={{ backgroundColor: "#553333", height: "800px" }}>
+    <div className="app">
+
       <Header />
-      <AboutMe /> 
-      {/* <ProjectsDone />
-      <TechUsed /> 
-      <ContactMe />*/}
+
+      <main>
+        <AboutMe />
+        <ProjectsDone />
+        <TechUsed />
+        <ContactMe />
+      </main>
+
     </div>
   )
 }

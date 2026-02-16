@@ -1,24 +1,36 @@
+import React from "react";
 function TechUsed() {
+    const techs = [
+    { name: "React", src: "/images/icons-react.svg" },
+    { name: "Node.js", src: "/images/icons-nodejs.svg" },
+    { name: "PostgreSQL", src: "/images/icons-postgresql.svg" },
+    { name: "JavaScript", src: "/images/icons-javascript.svg" },
+    { name: "CSS", src: "/images/icons-css.svg" },
+    { name: "HTML", src: "/images/icons-html.svg" },
+  ];
+
   return (
-    <>
-    <div className='div4' style={{ backgroundColor: "#ff9af7" }}>
-
-
-      <div className='d4-container1' style={{ backgroundColor: "#a2ff9a", padding: "15px" }}>
-        <p>Technology and Tools</p>
+    <section className="tech">
+      
+      <div className="tech-header">
+        <h2>Technology & Tools</h2>
       </div>
 
-
-      <div className='d4-container2' style={{ backgroundColor: "#77b169" }}>{/* IMG container  */}
-        <img className='d4-img' src="/images/logo-white.png" alt="profile-pic" style={{ width: "100px", padding: "10px", margin: "10px", backgroundColor: "#61352f" }} />
-        <img className='d4-img' src="/images/logo-white.png" alt="profile-pic" style={{ width: "100px", padding: "10px", margin: "10px", backgroundColor: "#61352f" }} />
-        <img className='d4-img' src="/images/logo-white.png" alt="profile-pic" style={{ width: "100px", padding: "10px", margin: "10px", backgroundColor: "#61352f" }} />
-        <img className='d4-img' src="/images/logo-white.png" alt="profile-pic" style={{ width: "100px", padding: "10px", margin: "10px", backgroundColor: "#61352f" }} />
-        <img className='d4-img' src="/images/logo-white.png" alt="profile-pic" style={{ width: "100px", padding: "10px", margin: "10px", backgroundColor: "#61352f" }} />
-        <img className='d4-img' src="/images/logo-white.png" alt="profile-pic" style={{ width: "100px", padding: "10px", margin: "10px", backgroundColor: "#61352f" }} />
+      <div className="tech-grid">
+        {techs.map((tech) => (
+          <React.Fragment key={tech.name}>
+          <img 
+            key={tech.name} 
+            className="tech-item" 
+            src={tech.src} 
+            alt={tech.name} 
+          />
+          <p>{tech.name}</p>
+          </React.Fragment>
+        ))}
       </div>
-    </div>
-    </>
+
+    </section>
   )
 }
 
