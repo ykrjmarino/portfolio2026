@@ -1,6 +1,6 @@
 function AboutMe() {
   return (
-    <section className='about' style={{ backgroundColor: "#9ac1ff" }}>
+    <section id="about" className='about section-wrapper' style={{ backgroundColor: "#9ac1ff" }}>
 
 
       <div className='about-content' style={{ backgroundColor: "#ffa69a", padding: "15px" }}>

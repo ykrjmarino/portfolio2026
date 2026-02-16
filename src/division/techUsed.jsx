@@ -10,7 +10,7 @@ function TechUsed() {
   ];
 
   return (
-    <section className="tech">
+    <section id="tech" className="tech section-wrapper">
       
       <div className="tech-header">
         <h2>Technology & Tools</h2>

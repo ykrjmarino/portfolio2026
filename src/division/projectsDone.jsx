@@ -1,6 +1,6 @@
 function ProjectsDone() {
   return (
-    <section className="projects">
+    <section id="projects" className="projects section-wrapper">
 
       <div className="projects-header">
         <h2>Projects</h2>

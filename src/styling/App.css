@@ -1,0 +1,251 @@
+/* ===== Global ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* ===== App Wrapper ===== */
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* ===== Header ===== */
+.header {
+  width: 100%;
+  background-color: #553333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  position: sticky; /* stays on top */
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-logo {
+  width: 50px;
+}
+
+.header-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.header-nav .nav-list {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.header-nav .nav-list li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.header-nav .nav-list li a:hover {
+  color: #ffa69a;
+}
+
+/* ===== Common Section ===== */
+.section-wrapper {
+  min-height: 80vh; /* bigger height */
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+}
+
+/* ===== About Section ===== */
+.about {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-content {
+  flex: 1;
+  min-width: 280px;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.about-actions button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  background-color: #ff7c6b;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.about-actions button:hover {
+  background-color: #e7604e;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* ===== Projects Section ===== */
+.projects-header h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.project-card {
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  padding: 20px;
+  flex: 1 1 250px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-image {
+  width: 60px;
+  margin-bottom: 10px;
+}
+
+.project-info h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+/* ===== Tech Section ===== */
+.tech-header h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.tech-item {
+  width: 80px;
+  height: 80px;
+}
+
+.tech-label {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* ===== Contact Section ===== */
+.contact-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contact-profile {
+  width: 150px;
+  border-radius: 50%;
+  margin-top: 10px;
+}
+
+.contact-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact-form-wrapper input,
+.contact-form-wrapper textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-submit button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #553333;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-submit button:hover {
+  background-color: #774444;
+}
+
+/* ===== Smooth Scroll ===== */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .about {
+    flex-direction: column;
+  }
+
+  .projects-grid,
+  .tech-grid {
+    justify-content: center;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

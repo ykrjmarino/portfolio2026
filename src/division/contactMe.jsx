@@ -1,6 +1,6 @@
 function ContactMe() {
   return (
-    <section className="contact">
+    <section id="contact" className="contact section-wrapper">
       
       <div className="contact-header">
         <h2>Send Me a Message</h2>
