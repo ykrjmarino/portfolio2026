@@ -1,4 +1,7 @@
-/* ===== Global ===== */
+/* =======================================================
+   GLOBAL STYLES
+======================================================= */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,11 +10,22 @@
 }
 
 body {
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: #212830;
+  color: #e6edf3;
 }
 
-/* ===== App Wrapper ===== */
+/* Smooth scrolling + header offset */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* matches header height */
+}
+
+
+
+/* =======================================================
+   APP WRAPPER
+======================================================= */
+
 .app {
   display: flex;
   flex-direction: column;
@@ -19,18 +33,26 @@ body {
   width: 100%;
 }
 
-/* ===== Header ===== */
+
+
+/* =======================================================
+   HEADER / NAVIGATION
+======================================================= */
+
 .header {
   width: 100%;
-  background-color: #553333;
+  background-color: #151b23;
+  border-bottom: 1px solid #3d444d;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  position: sticky; /* stays on top */
+  position: sticky;
   top: 0;
   z-index: 100;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .header-inner {
@@ -62,20 +84,56 @@ body {
 }
 
 .header-nav .nav-list li a:hover {
-  color: #ffa69a;
+  color: #478be6;
 }
 
-/* ===== Common Section ===== */
+
+
+/* =======================================================
+   COMMON SECTION WRAPPER (USED BY ALL SECTIONS)
+======================================================= */
+
 .section-wrapper {
-  min-height: 80vh; /* bigger height */
+  background-color: #262c36;
+  border-radius: 12px;
+  min-height: 80vh;
   padding: 60px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 30px;
+
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+
+  animation: fadeIn 0.6s ease-in-out;
 }
 
-/* ===== About Section ===== */
+/* Section divider */
+.section-wrapper:not(:last-child),
+.project-card {
+  border: 1px solid #3d444d;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* =======================================================
+   ABOUT SECTION
+======================================================= */
+
 .about {
   display: flex;
   flex-wrap: wrap;
@@ -90,24 +148,37 @@ body {
 
 .about-text {
   font-size: 1.1rem;
-  line-height: 1.5;
+  line-height: 1.6;
   margin-bottom: 20px;
 }
 
+.about-actions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* About buttons */
 .about-actions button {
-  padding: 10px 20px;
-  margin-right: 10px;
-  cursor: pointer;
   background-color: #ff7c6b;
   border: none;
   color: white;
-  font-weight: bold;
-  border-radius: 5px;
-  transition: background 0.3s;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
 }
 
 .about-actions button:hover {
   background-color: #e7604e;
+  transform: translateY(-2px);
+}
+
+.about-actions .icon {
+  width: 20px;
+  height: 20px;
 }
 
 .about-image {
@@ -120,13 +191,19 @@ body {
 .about-img {
   max-width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
-/* ===== Projects Section ===== */
+
+
+/* =======================================================
+   PROJECTS SECTION
+======================================================= */
+
 .projects-header h2 {
   font-size: 2rem;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .projects-grid {
@@ -137,16 +214,17 @@ body {
 }
 
 .project-card {
-  background-color: #f8f8f8;
-  border-radius: 10px;
+  background-color: white;
+  border-radius: 12px;
   padding: 20px;
   flex: 1 1 250px;
   text-align: center;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .project-image {
@@ -159,7 +237,12 @@ body {
   margin-bottom: 5px;
 }
 
-/* ===== Tech Section ===== */
+
+
+/* =======================================================
+   TECHNOLOGY SECTION
+======================================================= */
+
 .tech-header h2 {
   font-size: 2rem;
   margin-bottom: 20px;
@@ -169,7 +252,7 @@ body {
 .tech-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
   justify-content: center;
   align-items: center;
 }
@@ -177,6 +260,11 @@ body {
 .tech-item {
   width: 80px;
   height: 80px;
+  transition: transform 0.3s ease;
+}
+
+.tech-item:hover {
+  transform: scale(1.1);
 }
 
 .tech-label {
@@ -185,7 +273,12 @@ body {
   margin-top: 5px;
 }
 
-/* ===== Contact Section ===== */
+
+
+/* =======================================================
+   CONTACT SECTION
+======================================================= */
+
 .contact-header {
   text-align: center;
   margin-bottom: 20px;
@@ -210,7 +303,7 @@ body {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 .contact-submit button {
@@ -219,21 +312,21 @@ body {
   background-color: #553333;
   color: white;
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .contact-submit button:hover {
   background-color: #774444;
 }
 
-/* ===== Smooth Scroll ===== */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 80px;
-}
 
-/* ===== Responsive ===== */
+
+/* =======================================================
+   RESPONSIVE DESIGN
+======================================================= */
+
 @media (max-width: 768px) {
   .about {
     flex-direction: column;

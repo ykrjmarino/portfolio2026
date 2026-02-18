@@ -26,7 +26,6 @@ function ContactMe() {
           <textarea 
             placeholder="Message*" 
             rows={5} 
-            style={{ resize: "vertical" }} 
           />
         </div>
 
