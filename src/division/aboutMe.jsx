@@ -17,20 +17,20 @@ function AboutMe() {
         </div>
         <div className="about-actions">
           <a href="/files/Resume.pdf" target="_blank" rel="noopener noreferrer">
-            <button>Download CV</button>
+            <button className="download">Download CV</button>
           </a>
           <a href="https://www.linkedin.com/in/yla-marino-911385248/" target="_blank" rel="noopener noreferrer">
-            <button>
+            <button className="social">
               <img src="/images/icons-linkedin.svg" alt="LinkedIn" className="icon" />
             </button>
           </a>
           <a href="mailto:youremail@gmail.com">
-            <button>
+            <button className="social">
               <img src="/images/icons-gmail.svg" alt="Gmail" className="icon" />
             </button>
           </a>
           <a href="https://github.com/ykrjmarino" target="_blank" rel="noopener noreferrer">
-            <button>
+            <button className="social">
               <img src="/images/icons-github.svg" alt="GitHub" className="icon" />
             </button>
           </a>

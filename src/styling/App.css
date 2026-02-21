@@ -29,7 +29,6 @@ html {
 .app {
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
 }
 
@@ -84,7 +83,7 @@ html {
 }
 
 .header-nav .nav-list li a:hover {
-  color: #478be6;
+  color: #4184e466;
 }
 
 
@@ -103,8 +102,7 @@ html {
   justify-content: center;
   gap: 30px;
 
-  max-width: 1100px;
-  width: 100%;
+  width: 90%;      
   margin: 0 auto;
 
   animation: fadeIn 0.6s ease-in-out;
@@ -136,14 +134,15 @@ html {
 
 .about {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   gap: 40px;
   align-items: center;
+  justify-content: center;
 }
 
 .about-content {
   flex: 1;
-  min-width: 280px;
+  max-width: 500px;
 }
 
 .about-text {
@@ -159,38 +158,68 @@ html {
   margin-top: 20px;
 }
 
-/* About buttons */
-.about-actions button {
-  background-color: #ff7c6b;
-  border: none;
-  color: white;
-  padding: 10px 18px;
+/* Download CV button (rectangular) */
+.about-actions button.download {
+  height: 50px;
+  padding: 0 20px;
   border-radius: 8px;
-  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: white;
   font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+  .about-actions button.download:hover {
+    border-color: #ff7c6b;
+    color: #ff7c6b;
+    transform: translateY(-2px);
+  }
+
+/* Social icon buttons (square) */
+.about-actions button.social {
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.about-actions button:hover {
-  background-color: #e7604e;
-  transform: translateY(-2px);
-}
+  .about-actions button.social:hover {
+    border-color: #ff7c6b;
+    color: #ff7c6b;
+    transform: translateY(-2px);
+  }
 
 .about-actions .icon {
   width: 20px;
   height: 20px;
 }
 
+/* About image container (square) */
 .about-image {
-  flex: 1;
-  min-width: 280px;
+  max-width: 300px;
+  height: 300px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .about-img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 12px;
 }
 
@@ -214,7 +243,7 @@ html {
 }
 
 .project-card {
-  background-color: white;
+  background-color: #2a313c;
   border-radius: 12px;
   padding: 20px;
   flex: 1 1 250px;
@@ -261,6 +290,7 @@ html {
   width: 80px;
   height: 80px;
   transition: transform 0.3s ease;
+  background-color: #2a313c;
 }
 
 .tech-item:hover {

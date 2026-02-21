@@ -179,5 +179,5 @@ app.post("/chat", async (req, res) => {
 
 app.listen(port, () => {
   // db.connect();
-  console.log(`✅ Backend running at http://localhost:${port} (ykrjm2025)`);
+  console.log(`✅ Backend running at http://localhost:${port} (ykrjm2026)`);
 });
