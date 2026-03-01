@@ -94,7 +94,7 @@ html {
 
 .section-wrapper {
   background-color: #262c36;
-  border-radius: 12px;
+  border-radius: 1px;
   min-height: 80vh;
   padding: 60px 20px;
   display: flex;
