@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import AboutMe from './division/aboutMe'
 import ProjectsDone from './division/projectsDone'
 import TechUsed from './division/techUsed'
