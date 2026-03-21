@@ -1,0 +1,80 @@
+/* ===== Global ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #212830; /* dark base */
+  color: #fff;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* ===== App Wrapper ===== */
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* ===== Header ===== */
+.header {
+  width: 100%;
+  background-color: #151b23; /* GitHub dark header */
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* ===== Section Wrapper ===== */
+.section-wrapper {
+  width: 100%;             /* full width */
+  max-width: 1200px;       /* optional max width */
+  padding: 60px 20px;
+  margin: 0 auto;          /* center content if max-width is set */
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  border-radius: 12px;
+  background-color: #262c36; /* dark card background */
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* ===== Section fade-in animation ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Smooth Scroll ===== */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* accounts for sticky header */
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .section-wrapper {
+    padding: 40px 15px;
+  }
+}

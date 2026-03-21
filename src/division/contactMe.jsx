@@ -4,11 +4,11 @@ function ContactMe() {
       
       <div className="contact-header">
         <h2>Send Me a Message</h2>
-        <img 
+        {/* <img 
           className="contact-profile" 
           src="/images/logo-white.png" 
           alt="Profile" 
-        />
+        /> */}
       </div>
 
       <div className="contact-form-wrapper">

@@ -7,7 +7,7 @@ function Header() {
     return (
     <header className="header">
       <div className="header-inner">
-        <img className="header-logo" src="/images/logo-white.png" alt="logo" />
+        {/* <img className="header-logo" src="/images/logo-white.png" alt="logo" /> */}
         <p className="header-title">YKMarino</p>
       </div>
 
@@ -26,7 +26,20 @@ function Header() {
 function App() {
 
   return (
-    <div className="app">
+    <div className="app" style={{ width: '1080px', height: '1080px', position: 'relative' }}>
+      <Ribbons
+        colors={["#a142ff"]}
+        baseSpring={0.03}
+        baseFriction={0.83}
+        baseThickness={10}
+        offsetFactor={0.04}
+        maxAge={500}
+        pointCount={45}
+        speedMultiplier={0.6}
+        enableFade={false}
+        enableShaderEffect={false}
+        effectAmplitude={10}
+      />
 
       <Header />
 

@@ -10,11 +10,11 @@ function ProjectsDone() {
 
         {/* Project Card */}
         <div className="project-card">
-          <img 
+          {/* <img 
             className="project-image" 
             src="/images/logo-white.png" 
             alt="INsys project screenshot" 
-          />
+          /> */}
           <div className="project-info">
             <h3>INsys: AI Monitoring Examinations</h3>
             <p>Short description of the project here.</p>
@@ -23,11 +23,11 @@ function ProjectsDone() {
 
         {/* Project Card */}
         <div className="project-card">
-          <img 
+          {/* <img 
             className="project-image" 
             src="/images/logo-white.png" 
             alt="Project screenshot" 
-          />
+          /> */}
           <div className="project-info">
             <h3>Project Name</h3>
             <p>Short description of the project here.</p>
@@ -36,11 +36,11 @@ function ProjectsDone() {
 
         {/* Project Card */}
         <div className="project-card">
-          <img 
+          {/* <img 
             className="project-image" 
             src="/images/logo-white.png" 
             alt="Project screenshot" 
-          />
+          /> */}
           <div className="project-info">
             <h3>Project Name</h3>
             <p>Short description of the project here.</p>

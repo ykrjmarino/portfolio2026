@@ -1,0 +1,20 @@
+baclkground{
+  https://www.reactbits.dev/tools/background-studio?bg=ribbons&colors=a142ff&baseFriction=0.83&baseThickness=10&offsetFactor=0.04&pointCount=45&effectAmplitude=10
+  
+  npx shadcn@latest add @react-bits/Ribbons-JS-CSS
+  <div style={{ width: '1080px', height: '1080px', position: 'relative' }}>
+    <Ribbons
+      colors={["#a142ff"]}
+      baseSpring={0.03}
+      baseFriction={0.83}
+      baseThickness={10}
+      offsetFactor={0.04}
+      maxAge={500}
+      pointCount={45}
+      speedMultiplier={0.6}
+      enableFade={false}
+      enableShaderEffect={false}
+      effectAmplitude={10}
+    />
+  </div>
+}
