@@ -2,6 +2,7 @@ import AboutMe from './division/aboutMe'
 import ProjectsDone from './division/projectsDone'
 import TechUsed from './division/techUsed'
 import ContactMe from './division/contactMe'
+import Ribbons from './Ribbons';
 
 function Header() {
     return (
@@ -26,30 +27,28 @@ function Header() {
 function App() {
 
   return (
-    <div className="app" style={{ width: '1080px', height: '1080px', position: 'relative' }}>
-      <Ribbons
-        colors={["#a142ff"]}
-        baseSpring={0.03}
-        baseFriction={0.83}
-        baseThickness={10}
-        offsetFactor={0.04}
-        maxAge={500}
-        pointCount={45}
-        speedMultiplier={0.6}
-        enableFade={false}
-        enableShaderEffect={false}
-        effectAmplitude={10}
-      />
+    <div style={{ position: 'relative', minHeight: '100vh' }}>
 
-      <Header />
+      <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+        <Ribbons
+          baseThickness={16}
+          colors={["#5227FF"]}
+          speedMultiplier={0.53}
+          maxAge={500}
+          enableFade={false}
+          enableShaderEffect={false}
+        />
 
-      <main>
-        <AboutMe />
-        <ProjectsDone />
-        <TechUsed />
-        <ContactMe />
-      </main>
+        <Header />
 
+        <main>
+          <AboutMe />
+          <ProjectsDone />
+          <TechUsed />
+          <ContactMe />
+        </main>
+
+      </div>
     </div>
   )
 }

@@ -19,13 +19,15 @@ function TechUsed() {
       <div className="tech-grid">
         {techs.map((tech) => (
           <React.Fragment key={tech.name}>
-          <img 
-            key={tech.name} 
-            className="tech-item" 
-            src={tech.src} 
-            alt={tech.name} 
-          />
-          <p>{tech.name}</p>
+            <div className="tech-item-card">
+              <img 
+                key={tech.name} 
+                className="tech-item" 
+                src={tech.src} 
+                alt={tech.name} 
+              />
+              <p>{tech.name}</p>
+            </div>
           </React.Fragment>
         ))}
       </div>
